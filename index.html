@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سمسوم فرغ المكبوتات</title>
+    <style>
+        body {
+            background-color: #7a14c4; 
+            color: white; 
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center; 
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 80%;
+            height: 150px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            resize: none;
+            margin-bottom: 20px; 
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #6a0dad;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #response {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        img {
+            margin-top: 20px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>سمسوم فرغ المكبوتات</h1>
+    <textarea id="problem" placeholder="🫂اكتب مشكلتك هنا..."></textarea>
+    <button onclick="submitProblem()">abaet😔</button>
+    <div id="response"><h1>سمسوم انت تستتيع ياصديقي الشاف الفغنسي العزيز💋</h1>
+        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnZhcHZ2NXNlcmplc2xqY2JlMnB5MTVxZXNwb3luamNkN2NraXFteSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NUkNjO6J6kwiLuethv/giphy.gif" alt="GIF"></div>
+
+    <script>
+        function submitProblem() {
+            const problem = document.getElementById('problem').value;
+            if (problem.trim() !== "") {
+                let problems = JSON.parse(localStorage.getItem('problems')) || [];
+                problems.push(problem);
+                localStorage.setItem('problems', JSON.stringify(problems));
+                alert("تم إرسال مشكلتك بنجاح!");
+                document.getElementById('response').style.display = "block";
+                document.getElementById("problem").value ="";
+            } else {
+                alert("يرجى كتابة مشكلتك.");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الإدارة</title>
+    <style>
+        body {
+            background-color: #6a0dad;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        #problems {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .problem {
+            background-color: #5a0d9f;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>مشاكل l3ziz</h1>
+    <div id="problems"></div>
+
+    <script>
+        const password = prompt("يرجى إدخال كلمة المرور للدخول:");
+        if (password !== "rihabrihab") { 
+alert("كلمة المرور خاطئة!");
+            window.location.href = "index.html";
+        }
+        let problems = JSON.parse(localStorage.getItem('problems')) || [];
+        const problemsContainer = document.getElementById('problems');
+
+        problems.forEach(problem => {
+            const div = document.createElement('div');
+            div.className = 'problem';
+            div.textContent = problem;
+            problemsContainer.appendChild(div);
+        });
+    </script>
+
+</body>
+</html>
